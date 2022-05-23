@@ -1,0 +1,40 @@
+
+delimiter//
+create function FUNC1(a number,b number,c number)
+return boolean as invalid_triangle
+exception;
+begin
+if not(a+b>=c and b+c >=a and c+a >=b)
+then raise invalid_triangle;
+else return true;
+end if ;
+exception when 
+invaild_triangle then
+return false;
+end;//
+delimiter ;
+
+======================
+create table temp
+(
+STRING1 varchar(15),
+STRING2 varchar(15),
+RESULT varchar(25));
+=================
+
+delimiter //
+create procedure PROC1(x varchar(15),y varchar(15))
+begin
+	declare a int;
+
+set a = instr(y,x);
+if a>0 then 
+insert into temp(STRING1,STRING2,RESULT) values (x,y,'string exists');
+else
+insert into temp(STRING1,STRING2,RESULT) values(x,y,'string doesnt exists');
+end if;
+end;//
+delimiter ;
+call PROC1('DAC','CDAC');
+SELECT*FROM TEMP;
+=====================

@@ -1,0 +1,48 @@
+
+#sec 1
+create table DEPT
+(
+DEPTNO int,
+DNAME varchar(15),
+LOC varchar(10)
+);
+insert into DEPT values(10,'ACCOUNTING','NEW YORK'),
+(20,'RESEARCH','DALLAS'),(30,'SALES','CHICAgo'),
+(40,'operations','BOSTON');
+select*from dept;
+===========================
+create table EMP
+(
+EMPNO int,
+ENAME varchar(10),
+JOB varchar(9),
+HIREDATE date,
+SAL float,
+COMM float,
+DEPTNO int
+);
+insert into EMP values 
+(7839,'KING','MANAGER','1991-11-17',5000,null,10),
+(7698,'BLAKE','CLERK','1981-05-01',2850,null,30),
+(7782,'CLARK','MANAGER','1981-06-09',2450,null,10)/Users/tejaskadam/Desktop/Screenshot 2022-05-23 at 11.03.39 AM.png
+/Users/tejaskadam/Desktop/Screenshot 2022-05-23 at 11.04.44 AM.png
+/Users/tejaskadam/Desktop/Screenshot 2022-05-23 at 11.09.43 AM.png
+/Users/tejaskadam/Desktop/Screenshot 2022-05-23 at 11.12.10 AM.png
+/Users/tejaskadam/Desktop/Screenshot 2022-05-23 at 11.12.57 AM.png
+/Users/tejaskadam/Desktop/Screenshot 2022-05-23 at 10.47.33 AM.png
+/Users/tejaskadam/Desktop/Screenshot 2022-05-23 at 10.47.47 AM.png
+/Users/tejaskadam/Desktop/Screenshot 2022-05-23 at 11.00.52 AM.png
+/Users/tejaskadam/Desktop/Screenshot 2022-05-23 at 11.02.58 AM.png,
+(7566,'JONES','CLERK','1981-04-02',2975,null,20),
+(7654,'MARTIN','SALESMAN','1981-09-28',1250,1400,30),
+(7499,'ALLEN','SALESMAN','1981-02-20',1600,300,30);
+SELECT*FROM EMP;
+==================================
+select ename from emp where sal between 2500 and 5000;
+select ename from emp order by ename desc;
+select lower(job) from emp;
+select ename,length(ename) from emp;
+select deptno,count(deptno) from emp group by deptno;
+select ename , dname from emp,dept where emp.deptno=dept.deptno;
+select instr(ename,'AR') from emp;
+select sal,sal*.20 as HRA from emp;
